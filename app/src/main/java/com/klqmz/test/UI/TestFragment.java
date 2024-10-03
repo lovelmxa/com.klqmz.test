@@ -1,4 +1,4 @@
-package com.klqmz.test;
+package com.klqmz.test.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.klqmz.test.R;
+import com.klqmz.test.ShizukuActivity;
 
 public class TestFragment extends Fragment {
 
@@ -31,7 +34,7 @@ public class TestFragment extends Fragment {
     }
 
     public void switchToShizukuActivity(View view){
-        Intent intent = new Intent(getContext(),ShizukuActivity.class);
+        Intent intent = new Intent(getContext(), ShizukuActivity.class);
         startActivity(intent);
     }
 }

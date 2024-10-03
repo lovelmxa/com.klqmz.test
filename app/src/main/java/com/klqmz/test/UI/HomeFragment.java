@@ -1,4 +1,4 @@
-package com.klqmz.test;
+package com.klqmz.test.UI;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.klqmz.test.BuildConfig;
+import com.klqmz.test.R;
 
 public class HomeFragment extends Fragment {
 

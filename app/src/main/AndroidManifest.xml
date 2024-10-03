@@ -3,17 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools" >
     <!-- 申请获取APP包名 -->
     <queries>
-
         <!-- QQ -->
         <package android:name="com.tencent.mobileqq" />
-    </queries> <!-- ——————申请获取权限—————— -->
+    </queries>
+    <!-- ——————申请获取权限—————— -->
     <!-- —申请读文件权限 -->
     <!-- 安卓12及以下(API<=32) -->
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" /> <!-- 安卓13及以上(API>=33) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
+    <!-- 安卓13及以上(API>=33) -->
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" /> <!-- 安卓14及以上(API>=34) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <!-- 安卓14及以上(API>=34) -->
     <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
 
     <application

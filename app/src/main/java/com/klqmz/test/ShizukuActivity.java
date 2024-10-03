@@ -34,7 +34,7 @@ public class ShizukuActivity extends AppCompatActivity {
         Shizuku.removeRequestPermissionResultListener(onRequestPermissionResultListener);
         super.onDestroy();
     }
-    //Shizuku监听
+    //Shizuku授权监听
     private final Shizuku.OnRequestPermissionResultListener onRequestPermissionResultListener = (requestCode, grantResult) -> {
         boolean granted = grantResult == PackageManager.PERMISSION_GRANTED;
         if (granted) {

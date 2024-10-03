@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.klqmz.test.UI.HomeFragment;
+import com.klqmz.test.UI.TestFragment;
 
 import java.util.HashMap;
 import java.util.Map;
