@@ -23,6 +23,9 @@ public class HomeFragment extends Fragment {
         //设置构建时间
         TextView buildDateTextView = view.findViewById(R.id.home_buildtime_text);
         buildDateTextView.setText(BuildConfig.BUILD_DATE);  // 使用 BuildConfig 获取构建时间
+        //设置版本名称
+        TextView versionNameTextView = view.findViewById(R.id.home_vname);
+        versionNameTextView.setText(BuildConfig.VERSION_NAME);  // 使用 BuildConfig 获取版本名称
 
         return view;
     }

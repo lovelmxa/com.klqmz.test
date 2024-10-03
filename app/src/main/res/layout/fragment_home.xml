@@ -24,6 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
+        android:layout_marginEnd="45dp"
         android:text="安卓开发测试"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +36,7 @@
         android:id="@+id/home_buildtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="370dp"
+        android:layout_marginTop="420dp"
         android:text="构建时间"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,11 +48,23 @@
         android:id="@+id/home_buildtime_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="450dp"
         android:text="null"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/home_vname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="185dp"
+        android:text="null"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/home_text2"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 

@@ -1,4 +1,4 @@
-package com.klqmz.test.shizuku;
+package com.klqmz.test;
 
 interface IUserService {
 
