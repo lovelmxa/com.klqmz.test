@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.klqmz.test.JumpActivity;
 import com.klqmz.test.R;
 import com.klqmz.test.ShizukuActivity;
 
@@ -30,11 +31,17 @@ public class TestFragment extends Fragment {
         Button shizukuButton = view.findViewById(R.id.test_shizuku);
         shizukuButton.setOnClickListener(this::switchToShizukuActivity);
 
+        Button jumpButton = view.findViewById(R.id.test_jump);
+        jumpButton.setOnClickListener(this::switchToJumpActivity);
         return view;
     }
 
     public void switchToShizukuActivity(View view){
         Intent intent = new Intent(getContext(), ShizukuActivity.class);
+        startActivity(intent);
+    }
+    public void switchToJumpActivity(View view){
+        Intent intent = new Intent(getContext(), JumpActivity.class);
         startActivity(intent);
     }
 }
