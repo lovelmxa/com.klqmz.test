@@ -3,19 +3,16 @@ package com.klqmz.test;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.klqmz.test.UI.HomeFragment;
 import com.klqmz.test.UI.TestFragment;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class MainActivity extends AppCompatActivity {
 
-    private Map<Integer, Fragment> fragmentMap;
+    private final Fragment homeFragment = new HomeFragment();
+    private final Fragment testFragment = new TestFragment();
+    private Fragment currentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,36 +21,61 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.main_nav);
 
-        // 初始化 Fragment 映射
-        initFragmentMap();
+        // 初始化加载HomeFragment
+        if (savedInstanceState == null) {
+            currentFragment = homeFragment;
+            loadFragment(currentFragment, false);
+        }
 
-        // 默认加载 HomeFragment
-        loadFragment(fragmentMap.get(R.id.navigation_home));
-
+        // 底部菜单栏切换
         bottomNavigationView.setOnItemSelectedListener(item -> {
-            Fragment selectedFragment = fragmentMap.get(item.getItemId());
+            Fragment selectedFragment = null;
 
-            // 替换当前的 Fragment
-            if (selectedFragment != null) {
-                loadFragment(selectedFragment);
+            int itemId = item.getItemId();
+            if (itemId == R.id.navigation_home) {
+                selectedFragment = homeFragment;
+            } else if (itemId == R.id.navigation_test) {
+                selectedFragment = testFragment;
+            }
+
+            if (selectedFragment != null && selectedFragment != currentFragment) {
+                switchFragment(selectedFragment);
             }
             return true;
         });
     }
 
-    private void initFragmentMap() {
-        // 使用 Map 关联 MenuItem ID 和 Fragment
-        fragmentMap = new HashMap<>();
-        fragmentMap.put(R.id.navigation_home, new HomeFragment());
-        fragmentMap.put(R.id.navigation_test, new TestFragment());
-        // 可以继续添加更多 Fragment
+    // 切换Fragment
+    private void switchFragment(Fragment targetFragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        // 设置动画效果
+        transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+
+        // 如果切换的Fragment没有加载则开始加载
+        if (!targetFragment.isAdded()) {
+            transaction.add(R.id.fragment_container, targetFragment);
+        }
+
+        // 隐藏当前的Fragment并显示切换Fragment
+        transaction.hide(currentFragment).show(targetFragment);
+
+        // 提交
+        transaction.commit();
+
+        // 更新当前Fragment
+        currentFragment = targetFragment;
     }
 
-    private void loadFragment(Fragment fragment) {
-        // 使用 FragmentManager 替换 Fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.commit();
+    // 初始加载Fragment的方法
+    private void loadFragment(Fragment fragment, boolean withAnimation) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+        if (withAnimation) {
+            transaction.setCustomAnimations(R.anim.fade_in, R.anim.fade_out);
+        }
+
+        transaction.add(R.id.fragment_container, fragment);
+        transaction.commit();
     }
 }
