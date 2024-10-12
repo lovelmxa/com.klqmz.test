@@ -1,6 +1,8 @@
-package com.klqmz.test;
+package com.klqmz.test.Shizuku;
 
 import android.os.RemoteException;
+
+import com.klqmz.test.IUserService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
